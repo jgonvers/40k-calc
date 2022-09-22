@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const atk = [
   {
@@ -20,8 +20,13 @@ const atk = [
 export const attacksSlice = createSlice({
   name: 'Attacks',
   initialState: atk,
-  reducers: {},
+  reducers: {
+    removeAttack: (state, action) => {
+      return (current(state).filter(d => d.id !== action.payload));
+    }
+  },
 });
 
 export const selectAttacks = state => state.Attacks;
+export const { removeAttack } = attacksSlice.actions;
 export default attacksSlice.reducer;

@@ -1,0 +1,14 @@
+.remove-attack {
+  aspect-ratio: 1/1;
+  color: red;
+  border-color: red;
+  border-style: solid;
+  margin-right: 5px;
+}
+
+.button-content {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
