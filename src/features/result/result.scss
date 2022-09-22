@@ -1,0 +1,15 @@
+@import '../variables';
+
+.chart {
+  flex-grow: 1;
+}
+
+#chart {
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  margin-top: 2.5%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 2.5%;
+}
