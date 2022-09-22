@@ -6,6 +6,7 @@ import AttackDisplay from '../attackDisplay/attackDisplay';
 import CalcButton from '../calcButton/calcButton';
 import { useSelector } from 'react-redux';
 import { selectAttacks } from '../attacks/attacksSlice';
+import AddAttackButton from '../addAttackButton/addAttackButton';
 
 const Sidebar = () => {
   const atkList = useSelector(selectAttacks).map(attack => (
@@ -14,7 +15,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar accordion accordion-flush" id="atk-accordion">
       {atkList}
-      <CalcButton />
+      <div className='sidebar-button-holder'>
+        <CalcButton />
+        <AddAttackButton />
+      </div>
     </div>
   );
 }

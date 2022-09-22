@@ -23,10 +23,16 @@ export const attacksSlice = createSlice({
   reducers: {
     removeAttack: (state, action) => {
       return (current(state).filter(d => d.id !== action.payload));
+    },
+    addAttack: (state, action) => {
+      const maxID = current(state).flatMap(d => d.id).reduce((a, b) => Math.max(a, b), -Infinity);
+      const newAttack = action.payload;
+      newAttack.id = maxID + 1;
+      return ([...current(state), newAttack]);
     }
   },
 });
 
 export const selectAttacks = state => state.Attacks;
-export const { removeAttack } = attacksSlice.actions;
+export const { removeAttack, addAttack } = attacksSlice.actions;
 export default attacksSlice.reducer;

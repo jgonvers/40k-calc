@@ -37,13 +37,14 @@ function generateChart() {
     labels = labels.concat(value.flatMap(x => x.x));
     i += 1;
   });
-  data.labels = [...new Set(labels)].sort();
+  data.labels = [...new Set(labels)].sort((a, b) => a - b);
   const config = {
     type: 'line',
     data,
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      scales: { y: { max: 1, min: 0, offset: true } },
     },
   };
   // eslint-disable-next-line no-undef

@@ -46,7 +46,7 @@ function pass(n, toPass) {
   return sum(getNDice(n).slice(toPass - 1));
 }
 
-function calculator(attack, iteration = 1000) {
+function calculator(attack, iteration = 100000) {
   const { weapons, target, toHit } = attack;
   const result = {};
   let iter = iteration;
