@@ -36,7 +36,7 @@ const AttackDisplay = (props) => {
           <span className='button-content'>
             <span>{props.atk.name}</span>
             <span
-              className="remove-attack"
+              className="remove-attack btn btn-outline-danger"
               onClick={remove}
             >X</span>
           </span>
