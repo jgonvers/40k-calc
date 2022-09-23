@@ -5,6 +5,7 @@ import AddShooterForm from "../addShooterForm/addShooterForm";
 import { addAttack } from "../attacks/attacksSlice";
 import { connect } from "react-redux";
 import { switchForm } from "./AttackFormSlice";
+import { selectWeaponDB } from "../weapondb/weapondbSlice";
 import "./addAttackForm.scss";
 
 class AddAttackForm extends React.Component {
@@ -104,4 +105,7 @@ class AddAttackForm extends React.Component {
   }
 }
 
-export default connect(null, { addAttack, switchForm })(AddAttackForm);
+const mapStateToProps = (state) => {
+  return { weaponsDB: selectWeaponDB(state) };
+}
+export default connect(mapStateToProps, { addAttack, switchForm })(AddAttackForm);
