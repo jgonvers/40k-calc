@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addAttack } from '../attacks/attacksSlice';
 import { switchForm } from '../addAttackForm/AttackFormSlice';
 
 const atk_add = {

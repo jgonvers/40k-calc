@@ -26,13 +26,69 @@ export const attacksSlice = createSlice({
     },
     addAttack: (state, action) => {
       const maxID = current(state).flatMap(d => d.id).reduce((a, b) => Math.max(a, b), -1);
-      console.log(maxID);
       const newAttack = action.payload;
       newAttack.id = maxID + 1;
-      return ([...current(state), newAttack]);
+      if (validateAttack(newAttack)) {
+        return ([...current(state), newAttack]);
+      } else {
+        return (current(state));
+      }
     }
   },
 });
+
+
+function validateAttack(attack) {
+  // assume id to be correct
+  // only check existence
+  if (!attack.name) {
+    console.log("attack validation, no name");
+    return (false);
+  }
+  if (!attack.toHit) {
+    console.log("attack validation, no to hit");
+    return (false);
+  }
+  if (!attack.weapons) {
+    console.log("attack validation, no weapons");
+    return (false);
+  } else {
+    let v = true;
+    attack.weapons.forEach(w => {
+      console.log(w.id)
+      if (!w.id && w.id !== 0) {
+        console.log("attack validation: weapon with no id")
+        v = false;
+        return (false);
+      }
+      if (!w.quantity) {
+        console.log("attack validation: weapon with no quantity")
+        v = false;
+        return (false);
+      }
+    });
+    if (!v) { return false; }
+  }
+  if (!attack.target) {
+    console.log("attack validation no target");
+    return (false);
+  } else {
+    if (!attack.target.T) {
+      console.log("attack validation, no T");
+      return (false);
+    }
+    if (!attack.target.Sv) {
+      console.log("attack validation, no sv");
+      return (false);
+    }
+    if (!attack.target.Svv) {
+      console.log("attack validation, no svv");
+      return (false);
+    }
+  }
+  console.log("finish")
+  return (true);
+}
 
 export const selectAttacks = state => state.Attacks;
 export const { removeAttack, addAttack } = attacksSlice.actions;
