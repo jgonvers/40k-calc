@@ -69,23 +69,28 @@ class AddAttackForm extends React.Component {
     return (
       <div className="attack-form">
         <form id="addAttackForm">
-          <div className="row">
-            <label htmlFor="name"><h3>Attack Name</h3></label>
-            <input type="text" id="name" name="name"></input>
-            <AddShooterForm />
-            <AddTargetForm />
+          <div className="subgroup">
+            <div className="subsubgroup">
+              <label htmlFor="name"><h3>Attack Name</h3></label>
+              <input type="text" id="name" name="name"></input>
+            </div>
+          </div>
+          <AddShooterForm />
+          <AddTargetForm />
+          <div>
             <h3>Weapons</h3>
-            <label htmlFor="weapon_selector">Add Weapon</label>
             <select
               id="weapon_selector"
               name="weapon_selector"
               onChange={addWeapon}
             >
-              <option value={-1}>select weapon</option>
+              <option value={-1}>select weapon to add</option>
               {weaponSelectorOptions}
             </select>
+            <div className="subgroup">
+              {weaponList}
+            </div>
           </div>
-          {weaponList}
           <button
             type="button"
             className="btn btn-primary"

@@ -4,4 +4,37 @@
   bottom: 0;
   right: 0;
   background-color: white;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 250px;
+      margin: 15px;
+    }
+  }
+
+}
+
+.group {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subgroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.subsubgroup {
+  margin: 15px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

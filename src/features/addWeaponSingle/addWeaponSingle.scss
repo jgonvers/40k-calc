@@ -1,0 +1,12 @@
+.weapon {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+
+  input {
+    width: 80%;
+  }
+}
