@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addAttack } from '../attacks/attacksSlice';
+import { switchForm } from '../addAttackForm/AttackFormSlice';
 
 const atk_add = {
   name: 'added attack',
@@ -14,7 +15,7 @@ const AddAttackButton = () => {
   const atk = Object.assign({}, atk_add);
   atk.name += Math.random().toString();
   const add = () => {
-    dispatch(addAttack(atk));
+    dispatch(switchForm());
   };
   return (
     <button
