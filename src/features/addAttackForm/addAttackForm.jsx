@@ -2,7 +2,8 @@ import React from "react";
 import AddTargetForm from "../addTargetForm/addTargetForm";
 import AddWeaponSingle from "../addWeaponSingle/addWeaponSingle";
 import AddShooterForm from "../addShooterForm/addShooterForm";
-
+import { addAttack } from "../attacks/attacksSlice";
+import { connect } from "react-redux";
 class AddAttackForm extends React.Component {
   constructor() {
     super();
@@ -44,7 +45,7 @@ class AddAttackForm extends React.Component {
           case "svv":
             attack.target.Svv = value;
             break;
-          case "toHit":
+          case "ToHit":
             attack.toHit = value;
             break;
           case "weapon_selector":
@@ -55,11 +56,11 @@ class AddAttackForm extends React.Component {
                 id: parseInt(key.match(/\d+/)[0]),
                 quantity: value,
               })
-            } else { console.log(key) }
+            } else { console.log(`key not in switch: ${key}`) }
         }
       }
-      // TODO: add attack to redux
-      console.log(attack);
+      this.props.addAttack(attack);
+      // todo close form
     }
 
     return (
@@ -95,4 +96,4 @@ class AddAttackForm extends React.Component {
   }
 }
 
-export default AddAttackForm;
+export default connect(null, { addAttack })(AddAttackForm);
