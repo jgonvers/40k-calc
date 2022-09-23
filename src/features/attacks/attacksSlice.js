@@ -25,7 +25,8 @@ export const attacksSlice = createSlice({
       return (current(state).filter(d => d.id !== action.payload));
     },
     addAttack: (state, action) => {
-      const maxID = current(state).flatMap(d => d.id).reduce((a, b) => Math.max(a, b), -Infinity);
+      const maxID = current(state).flatMap(d => d.id).reduce((a, b) => Math.max(a, b), -1);
+      console.log(maxID);
       const newAttack = action.payload;
       newAttack.id = maxID + 1;
       return ([...current(state), newAttack]);
