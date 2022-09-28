@@ -10,11 +10,15 @@ const CalcButton = (props) => {
   const dispatch = useDispatch();
   const attacks = useSelector(selectAttacks);
   const calculate = () => {
+    const loader = document.getElementById("loader")
+
+    loader.className = "";
     const res = {};
     attacks.forEach((attack) => {
       res[attack.name] = calculator(attack);
     });
     dispatch(changeResult(res));
+    loader.className = "d-none";
   }
   return (
     <button
