@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 const diceDistribution = {
-  d3: [1, 2, 3],
-  d3p3: [4, 5, 6],
-  d6: [1, 2, 3, 4, 5, 6],
-  d6min3: [3, 3, 3, 4, 5, 6]
+  d3: { name: "1d3", val: [1, 2, 3] },
+  d3p3: { name: "1d3+3", val: [4, 5, 6] },
+  d6: { name: "1d6", val: [1, 2, 3, 4, 5, 6] },
+  d6min3: { name: "1d6 min 3", val: [3, 3, 3, 4, 5, 6] }
 }
 
 

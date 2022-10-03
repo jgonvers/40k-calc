@@ -14,10 +14,10 @@ const WeaponDisplay = (props) => {
         {props.weapon.quantity} {WeaponDataBase[id].name}
       </h4>
       <div className="weapon-data">
-        <div className="weapon-burst">B: {WeaponDataBase[id].B}</div>
+        <div className="weapon-burst">B: {typeof (WeaponDataBase[id].B) === 'number' ? WeaponDataBase[id].B : WeaponDataBase[id].B.name}</div>
         <div className="weapon-strength">S: {WeaponDataBase[id].S}</div>
         <div className="weapon-ap">AP: {WeaponDataBase[id].AP}</div>
-        <div className="weapon-damage">D: {WeaponDataBase[id].D}</div>
+        <div className="weapon-damage">D: {typeof (WeaponDataBase[id].D) === 'number' ? WeaponDataBase[id].D : WeaponDataBase[id].D.name}</div>
       </div>
     </div>
   );

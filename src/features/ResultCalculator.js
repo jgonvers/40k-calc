@@ -78,12 +78,11 @@ function calculator(attack, iteration = ITERATION) {
     weapons.forEach(weapon => {
       const { hit, wound, save } = weapon;
 
-      let n = weapon.quantity * getN(WeaponDataBase[weapon.id].B);
-
+      let n = weapon.quantity * getN(typeof (WeaponDataBase[weapon.id].B) === 'number' ? WeaponDataBase[weapon.id].B : WeaponDataBase[weapon.id].B.val);
       n = pass(n, hit);
       n = pass(n, wound);
       n -= pass(n, save);
-      for (let i = 0; i < n; i++) { d += getN(WeaponDataBase[weapon.id].D); }
+      for (let i = 0; i < n; i++) { d += getN(typeof (WeaponDataBase[weapon.id].D) === 'number' ? WeaponDataBase[weapon.id].D : WeaponDataBase[weapon.id].D.val); }
     });
     if (result[d] === undefined) { result[d] = 1; }
     else { result[d] += 1; }
