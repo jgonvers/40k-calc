@@ -2,7 +2,7 @@ import { sum } from 'lodash';
 import { WeaponDataBase } from './weapondb/weapondbSlice';
 
 function getDice() {
-  return Math.floor(Math.random() * 5 + 1);
+  return Math.floor(Math.random() * 6 + 1);
 }
 
 function getNDice(n) {
@@ -47,7 +47,7 @@ function pass(n, toPass) {
 }
 
 
-async function multiCalc(attacks, iteration = 10 ** 5) {
+async function multiCalc(attacks, iteration = 10 ** 6) {
   const promise = new Promise((resolve, reject) => {
     const res = {};
     attacks.forEach((attack) => { res[attack.name] = calculator(attack, iteration) })
@@ -56,7 +56,7 @@ async function multiCalc(attacks, iteration = 10 ** 5) {
   return (promise);
 }
 
-function calculator(attack, iteration = 10 ** 5) {
+function calculator(attack, iteration = 10 ** 6) {
   const { weapons, target, toHit } = attack;
   const result = {};
   let iter = iteration;
