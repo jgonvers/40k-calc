@@ -1,12 +1,19 @@
 import "./loader.scss";
 import React from "react";
+import { selectLoaderState } from "./loaderSlice";
+import { useSelector, connect } from "react-redux";
 
-const Loader = () => {
-  return (
-    <div id="loader" className="d-none">
-      <div className="spinner-border" role="status"></div>
-    </div>
-  )
+const Loader = (props) => {
+  if (useSelector(selectLoaderState)) {
+    return (
+      <div id="loader">
+        <div className="spinner-border" role="status"></div>
+      </div>
+    )
+  } else { return "" }
 }
 
-export default Loader;
+function mapStateToProps(state) { return state; }
+
+export default connect(mapStateToProps)(Loader);
+

@@ -46,7 +46,17 @@ function pass(n, toPass) {
   return sum(getNDice(n).slice(toPass - 1));
 }
 
-function calculator(attack, iteration = 100000) {
+
+async function multiCalc(attacks, iteration = 3 * 10 ** 6) {
+  const promise = new Promise((resolve, reject) => {
+    const res = {};
+    attacks.forEach((attack) => { res[attack.name] = calculator(attack, iteration) })
+    resolve(res);
+  })
+  return (promise);
+}
+
+function calculator(attack, iteration = 10 ** 6) {
   const { weapons, target, toHit } = attack;
   const result = {};
   let iter = iteration;
@@ -85,4 +95,5 @@ function calculator(attack, iteration = 100000) {
   return out;
 }
 
+export { multiCalc };
 export default calculator;

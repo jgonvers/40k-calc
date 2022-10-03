@@ -5,6 +5,7 @@ import Result from './features/result/result';
 import AddAttackForm from './features/addAttackForm/addAttackForm';
 import { useSelector } from 'react-redux';
 import { selectFormState } from './features/addAttackForm/AttackFormSlice';
+import Loader from './features/loader/loader';
 function App() {
   const formState = useSelector(selectFormState);
   const form = () => {
@@ -14,6 +15,7 @@ function App() {
   }
   return (
     <div className="App">
+      <Loader />
       <Result />
       <Sidebar />
       {form()}
