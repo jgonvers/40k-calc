@@ -60,28 +60,29 @@ async function multiCalc(attacks, iteration = ITERATION) {
 }
 
 function calculator(attack, iteration = ITERATION) {
-  const { weapons, target, toHit } = attack;
+  const { target, toHit } = attack;
+  const weapons = [];
+  attack.weapons.forEach(weapon => {
+    weapons.push(Object.assign({}, weapon))
+  })
   const result = {};
-  let iter = iteration;
-  while (iter) {
-    iter -= 1;
+  for (let i = 0; i < weapons.length; i++) {
+    weapons[i].hit = getToHit(toHit, weapons[i], target);
+    weapons[i].wound = getToWound(weapons[i], target);
+    weapons[i].save = getSave(weapons[i], target);
+  }
+
+  for (let iter = 0; iter < iteration; iter++) {
     let d = 0;
     weapons.forEach(weapon => {
-      // put outside loop for not doing it every iteration
-      const hit = getToHit(toHit, weapon, target);
-      const wound = getToWound(weapon, target);
-      const save = getSave(weapon, target);
+      const { hit, wound, save } = weapon;
 
       let n = weapon.quantity * WeaponDataBase[weapon.id].B;
 
       n = pass(n, hit);
       n = pass(n, wound);
       n -= pass(n, save);
-      let i = 0;
-      while (i < n) {
-        i += 1;
-        d += damage(WeaponDataBase[weapon.id].D);
-      }
+      for (let i = 0; i < n; i++) { d += damage(WeaponDataBase[weapon.id].D); }
     });
     if (result[d] === undefined) { result[d] = 1; }
     else { result[d] += 1; }
