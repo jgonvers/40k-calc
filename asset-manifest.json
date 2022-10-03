@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/40k-calc/static/css/main.5a93ad85.css",
+    "main.js": "/40k-calc/static/js/main.fe32d79d.js",
+    "index.html": "/40k-calc/index.html",
+    "main.5a93ad85.css.map": "/40k-calc/static/css/main.5a93ad85.css.map",
+    "main.fe32d79d.js.map": "/40k-calc/static/js/main.fe32d79d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a93ad85.css",
+    "static/js/main.fe32d79d.js"
+  ]
+}
