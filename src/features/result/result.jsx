@@ -40,13 +40,25 @@ function generateChart() {
     i += 1;
   });
   data.labels = [...new Set(labels)].sort((a, b) => a - b);
+  const scales = {
+    y: {
+      max: 1, min: 0, offset: true, title: {
+        display: true, text: "Probability"
+      }
+    },
+    x: {
+      title: {
+        display: true, text: "Damage (at least X)"
+      }
+    },
+  }
   const config = {
     type: 'line',
     data,
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      scales: { y: { max: 1, min: 0, offset: true } },
+      scales: scales,
     },
   };
   // eslint-disable-next-line no-undef

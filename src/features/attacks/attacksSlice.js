@@ -2,11 +2,11 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 const atk = [];
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 4; i++) {
   atk.push({
     id: i,
-    name: `${i + 1} heavy stubbers`,
-    weapons: [{ id: 0, quantity: i + 1 }],
+    name: `${i * 5 + 5} heavy stubbers`,
+    weapons: [{ id: 0, quantity: i * 5 + 5 }],
     target: { T: 4, Sv: 4, Svv: 6 },
     toHit: 4,
   })
