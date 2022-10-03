@@ -47,7 +47,7 @@ function pass(n, toPass) {
 }
 
 
-async function multiCalc(attacks, iteration = 3 * 10 ** 6) {
+async function multiCalc(attacks, iteration = 10 ** 5) {
   const promise = new Promise((resolve, reject) => {
     const res = {};
     attacks.forEach((attack) => { res[attack.name] = calculator(attack, iteration) })
@@ -56,7 +56,7 @@ async function multiCalc(attacks, iteration = 3 * 10 ** 6) {
   return (promise);
 }
 
-function calculator(attack, iteration = 10 ** 6) {
+function calculator(attack, iteration = 10 ** 5) {
   const { weapons, target, toHit } = attack;
   const result = {};
   let iter = iteration;
