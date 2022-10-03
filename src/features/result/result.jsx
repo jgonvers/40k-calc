@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 import './result.scss';
 import { useSelector, connect } from 'react-redux';
 import { selectResult } from './resultSlice';
-const colors = ['red', 'blue', 'green'];
+const colors = ['red', 'blue', 'green',
+  'indianred', 'lightblue', 'lightgreen',
+  'darkred', 'navy', 'darkgreen'];
 
 const Result = () => {
   const datas = useSelector(selectResult)
