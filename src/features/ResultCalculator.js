@@ -38,11 +38,12 @@ function getSave(weapon, target) {
   return Svv;
 }
 
-function damage(D) {
+function getN(D) {
   if (typeof (D) === 'number') { return D; }
   if (typeof (D) === 'object') { return D[Math.floor(Math.random() * D.length)] }
   return 0;
 }
+
 
 function pass(n, toPass) {
   if (toPass > 6) { return 0; }
@@ -77,12 +78,12 @@ function calculator(attack, iteration = ITERATION) {
     weapons.forEach(weapon => {
       const { hit, wound, save } = weapon;
 
-      let n = weapon.quantity * WeaponDataBase[weapon.id].B;
+      let n = weapon.quantity * getN(WeaponDataBase[weapon.id].B);
 
       n = pass(n, hit);
       n = pass(n, wound);
       n -= pass(n, save);
-      for (let i = 0; i < n; i++) { d += damage(WeaponDataBase[weapon.id].D); }
+      for (let i = 0; i < n; i++) { d += getN(WeaponDataBase[weapon.id].D); }
     });
     if (result[d] === undefined) { result[d] = 1; }
     else { result[d] += 1; }
