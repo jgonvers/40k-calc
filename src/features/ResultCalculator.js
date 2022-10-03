@@ -1,6 +1,8 @@
 import { sum } from 'lodash';
 import { WeaponDataBase } from './weapondb/weapondbSlice';
 
+const ITERATION = 10 ** 5;
+
 function getDice() {
   return Math.floor(Math.random() * 6 + 1);
 }
@@ -37,8 +39,9 @@ function getSave(weapon, target) {
 }
 
 function damage(D) {
-  // TODO
-  return 1;
+  if (typeof (D) === 'number') { return D; }
+  if (typeof (D) === 'object') { return D[Math.floor(Math.random() * D.length)] }
+  return 0;
 }
 
 function pass(n, toPass) {
@@ -47,7 +50,7 @@ function pass(n, toPass) {
 }
 
 
-async function multiCalc(attacks, iteration = 10 ** 6) {
+async function multiCalc(attacks, iteration = ITERATION) {
   const promise = new Promise((resolve, reject) => {
     const res = {};
     attacks.forEach((attack) => { res[attack.name] = calculator(attack, iteration) })
@@ -56,7 +59,7 @@ async function multiCalc(attacks, iteration = 10 ** 6) {
   return (promise);
 }
 
-function calculator(attack, iteration = 10 ** 6) {
+function calculator(attack, iteration = ITERATION) {
   const { weapons, target, toHit } = attack;
   const result = {};
   let iter = iteration;
@@ -77,7 +80,7 @@ function calculator(attack, iteration = 10 ** 6) {
       let i = 0;
       while (i < n) {
         i += 1;
-        d += damage(weapon.D);
+        d += damage(WeaponDataBase[weapon.id].D);
       }
     });
     if (result[d] === undefined) { result[d] = 1; }
