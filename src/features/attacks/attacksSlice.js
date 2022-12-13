@@ -2,15 +2,27 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 const atk = [];
 
-for (let i = 0; i < 4; i++) {
-  atk.push({
-    id: i,
-    name: `${i * 5 + 5} heavy stubbers`,
-    weapons: [{ id: 0, quantity: i * 5 + 5 }],
-    target: { T: 4, Sv: 4, Svv: 6 },
-    toHit: 4,
-  })
-}
+atk.push({
+  id: 0,
+  name: "1 neutron onager vs leman russ",
+  target: { T: 8, Sv: 2, Svv: 7 },
+  weapons: [{ id: 10, quantity: 2 }, { id: 55, quantity: 1 }],
+  toHit: 3,
+});
+atk.push({
+  id: 0,
+  name: "1 ferrumite skorpius vs leman russ",
+  target: { T: 8, Sv: 2, Svv: 7 },
+  weapons: [{ id: 10, quantity: 3 }, { id: 12, quantity: 1 }, { id: 30, quantity: 1 }],
+  toHit: 3,
+});
+atk.push({
+  id: 0,
+  name: "2 lascannon ballistarii vs leman russ",
+  target: { T: 8, Sv: 2, Svv: 7 },
+  weapons: [{ id: 87, quantity: 1 }],
+  toHit: 3,
+});
 
 export const attacksSlice = createSlice({
   name: 'Attacks',

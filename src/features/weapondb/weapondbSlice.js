@@ -12,33 +12,33 @@ const diceDistribution = {
 
 
 
-const atkDB = [
-  { name: 'Arc Pistol', S: 5, B: 1, AP: -2, D: 1 },
+const atkDB = [//added in order so id = line - startline
+  { name: 'Arc Pistol', S: 5, B: 1, AP: -2, D: 1 },//0
   { name: 'Arc (vehicle)', S: 5, B: 1, AP: -2, D: 2 },
   { name: 'Arc Rifle', S: 6, B: 1, AP: -2, D: diceDistribution.d3 },
   { name: 'Arc Rifle (half range)', S: 6, B: 2, AP: -2, D: diceDistribution.d3 },
   { name: 'Arc Rifle (vehicle)', S: 6, B: 1, AP: -2, D: 3 },
-  { name: 'Arc Rifle (vehicle)(half range)', S: 6, B: 2, AP: -2, D: 3 },
+  { name: 'Arc Rifle (vehicle)(half range)', S: 6, B: 2, AP: -2, D: 3 },//5
   { name: 'Archeo-revolver', S: 5, B: 1, AP: -2, D: 2 },
   { name: 'Belleros Energy Cannon', S: 5, B: diceDistribution.d3_3, AP: -1, D: 2 },
   { name: 'Belleros Energy Cannon (blast)', S: 5, B: 9, AP: -1, D: 2 },
   { name: 'Cognis Flamer', S: 4, B: diceDistribution.d6p2, AP: 0, D: 1 },
-  { name: "Cognis Heavy Stubber", S: 4, B: 4, AP: 0, D: 1 },
+  { name: "Cognis Heavy Stubber", S: 4, B: 4, AP: 0, D: 1 },//10
   { name: "Deadalus Missile Launcher", S: 7, B: 1, AP: -3, D: diceDistribution.d6 },
   { name: "Disruptor Missile Launcher", S: 7, B: diceDistribution.d6, AP: -2, D: diceDistribution.d3 },
   { name: "Disruptor Missile Launcher (blast)", S: 7, B: 6, AP: -2, D: diceDistribution.d3 },
   { name: "Disruptor Missile Launcher (half blast)", S: 7, B: diceDistribution.d6min3, AP: -2, D: diceDistribution.d3 },
-  { name: "Electrostatic Gauntlets (shooting)", S: 5, B: 3, AP: -1, D: 1 },
+  { name: "Electrostatic Gauntlets (shooting)", S: 5, B: 3, AP: -1, D: 1 },//15
   { name: "Eradication Beamer Focused", S: 8, B: diceDistribution.d6, AP: -4, D: 3 },
   { name: "Eradication Beamer Focused (blast)", S: 8, B: 6, AP: -4, D: 3 },
   { name: "Eradication Beamer Focused (half blast)", S: 8, B: diceDistribution.d6min3, AP: -4, D: 3 },
   { name: "Eradication Beamer Dissipated", S: 8, B: diceDistribution.d6, AP: -3, D: 2 },
-  { name: "Eradication Beamer Dissipated (blast)", S: 8, B: 6, AP: -3, D: 2 },
+  { name: "Eradication Beamer Dissipated (blast)", S: 8, B: 6, AP: -3, D: 2 },//20
   { name: "Eradication Beamer Dissipated (half blast)", S: 8, B: diceDistribution.d6min3, AP: -3, D: 2 },
   { name: "Eradication Pistol Focused", S: 6, AP: -3, D: 2, B: diceDistribution.d3 },
   { name: "Eradication Pistol Focused (blast)", S: 6, AP: -3, D: 2, B: 3 },
   { name: "Eradication Pistol Dissipated", S: 6, AP: -2, D: 1, B: diceDistribution.d3 },
-  { name: "Eradication Pistol Dissipated (blast)", S: 6, AP: -2, D: 1, B: 3 },
+  { name: "Eradication Pistol Dissipated (blast)", S: 6, AP: -2, D: 1, B: 3 },//25
   { name: "Eradication Ray Focused", S: 6, AP: -3, D: 2, B: diceDistribution.d3 },
   { name: "Eradication Ray Focused (blast)", S: 6, AP: -3, D: 2, B: 3 },
   { name: "Eradication Ray Dissipated", S: 6, AP: -2, D: 1, B: diceDistribution.d3 },
