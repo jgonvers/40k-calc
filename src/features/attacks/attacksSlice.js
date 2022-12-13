@@ -10,14 +10,14 @@ atk.push({
   toHit: 3,
 });
 atk.push({
-  id: 0,
+  id: 1,
   name: "1 ferrumite skorpius vs leman russ",
   target: { T: 8, Sv: 2, Svv: 7 },
   weapons: [{ id: 10, quantity: 3 }, { id: 12, quantity: 1 }, { id: 30, quantity: 1 }],
   toHit: 3,
 });
 atk.push({
-  id: 0,
+  id: 2,
   name: "2 lascannon ballistarii vs leman russ",
   target: { T: 8, Sv: 2, Svv: 7 },
   weapons: [{ id: 87, quantity: 1 }],
