@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/40k-calc/static/css/main.5a93ad85.css",
-    "main.js": "/40k-calc/static/js/main.8a88c9e8.js",
+    "main.js": "/40k-calc/static/js/main.47607483.js",
     "index.html": "/40k-calc/index.html",
     "main.5a93ad85.css.map": "/40k-calc/static/css/main.5a93ad85.css.map",
-    "main.8a88c9e8.js.map": "/40k-calc/static/js/main.8a88c9e8.js.map"
+    "main.47607483.js.map": "/40k-calc/static/js/main.47607483.js.map"
   },
   "entrypoints": [
     "static/css/main.5a93ad85.css",
-    "static/js/main.8a88c9e8.js"
+    "static/js/main.47607483.js"
   ]
 }
