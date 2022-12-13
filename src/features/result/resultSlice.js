@@ -16,7 +16,7 @@ export const resultSlice = createSlice({
 
 
 const calculate = createAsyncThunk('result/calculate', async (attacks) => {
-  await timeout(100); // allow react/redux to parse the events
+  await timeout(0); // allow react/redux to parse the events
   // otherwise multicalc hog the cpu and the events are parsed after its resolution
   // alternatively use worker
   const result = await multiCalc(attacks);
